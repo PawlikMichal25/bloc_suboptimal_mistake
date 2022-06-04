@@ -64,8 +64,7 @@ mixin _$HomeState {
 
 /// @nodoc
 abstract class $HomeStateCopyWith<$Res> {
-  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res>;
+  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) = _$HomeStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -79,13 +78,11 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
 
 /// @nodoc
 abstract class _$$LoadingCopyWith<$Res> {
-  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
-      __$$LoadingCopyWithImpl<$Res>;
+  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) = __$$LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
-    implements _$$LoadingCopyWith<$Res> {
+class __$$LoadingCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res> implements _$$LoadingCopyWith<$Res> {
   __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
       : super(_value, (v) => _then(v as _$Loading));
 
@@ -105,8 +102,7 @@ class _$Loading implements Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$Loading);
   }
 
   @override
@@ -187,16 +183,13 @@ abstract class Loading implements HomeState {
 
 /// @nodoc
 abstract class _$$ErrorCopyWith<$Res> {
-  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
-      __$$ErrorCopyWithImpl<$Res>;
+  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) = __$$ErrorCopyWithImpl<$Res>;
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
-    implements _$$ErrorCopyWith<$Res> {
-  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
-      : super(_value, (v) => _then(v as _$Error));
+class __$$ErrorCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res> implements _$$ErrorCopyWith<$Res> {
+  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then) : super(_value, (v) => _then(v as _$Error));
 
   @override
   _$Error get _value => super._value as _$Error;
@@ -236,13 +229,11 @@ class _$Error implements Error {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
-  _$$ErrorCopyWith<_$Error> get copyWith =>
-      __$$ErrorCopyWithImpl<_$Error>(this, _$identity);
+  _$$ErrorCopyWith<_$Error> get copyWith => __$$ErrorCopyWithImpl<_$Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -323,14 +314,12 @@ abstract class Error implements HomeState {
 
 /// @nodoc
 abstract class _$$SuccessCopyWith<$Res> {
-  factory _$$SuccessCopyWith(_$Success value, $Res Function(_$Success) then) =
-      __$$SuccessCopyWithImpl<$Res>;
+  factory _$$SuccessCopyWith(_$Success value, $Res Function(_$Success) then) = __$$SuccessCopyWithImpl<$Res>;
   $Res call({int firstValue, List<String> secondValue});
 }
 
 /// @nodoc
-class __$$SuccessCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
-    implements _$$SuccessCopyWith<$Res> {
+class __$$SuccessCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res> implements _$$SuccessCopyWith<$Res> {
   __$$SuccessCopyWithImpl(_$Success _value, $Res Function(_$Success) _then)
       : super(_value, (v) => _then(v as _$Success));
 
@@ -358,8 +347,7 @@ class __$$SuccessCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Success implements Success {
-  const _$Success(this.firstValue, final List<String> secondValue)
-      : _secondValue = secondValue;
+  const _$Success(this.firstValue, final List<String> secondValue) : _secondValue = secondValue;
 
   @override
   final int firstValue;
@@ -380,22 +368,17 @@ class _$Success implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Success &&
-            const DeepCollectionEquality()
-                .equals(other.firstValue, firstValue) &&
-            const DeepCollectionEquality()
-                .equals(other._secondValue, _secondValue));
+            const DeepCollectionEquality().equals(other.firstValue, firstValue) &&
+            const DeepCollectionEquality().equals(other._secondValue, _secondValue));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(firstValue),
-      const DeepCollectionEquality().hash(_secondValue));
+      runtimeType, const DeepCollectionEquality().hash(firstValue), const DeepCollectionEquality().hash(_secondValue));
 
   @JsonKey(ignore: true)
   @override
-  _$$SuccessCopyWith<_$Success> get copyWith =>
-      __$$SuccessCopyWithImpl<_$Success>(this, _$identity);
+  _$$SuccessCopyWith<_$Success> get copyWith => __$$SuccessCopyWithImpl<_$Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -467,12 +450,10 @@ class _$Success implements Success {
 }
 
 abstract class Success implements HomeState {
-  const factory Success(final int firstValue, final List<String> secondValue) =
-      _$Success;
+  const factory Success(final int firstValue, final List<String> secondValue) = _$Success;
 
   int get firstValue => throw _privateConstructorUsedError;
   List<String> get secondValue => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$SuccessCopyWith<_$Success> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SuccessCopyWith<_$Success> get copyWith => throw _privateConstructorUsedError;
 }

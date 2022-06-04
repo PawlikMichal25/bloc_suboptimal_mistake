@@ -1,4 +1,4 @@
-import 'package:bloc_suboptimal_mistake/home/home_state.dart';
+import 'package:bloc_suboptimal_mistake/home/cubit/home_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeCubit extends Cubit<HomeState> {

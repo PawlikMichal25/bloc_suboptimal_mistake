@@ -35,3 +35,4 @@ linter:
     use_colored_box: true
     use_enums: true
     use_super_parameters: true
+    avoid_print: false

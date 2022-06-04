@@ -1,4 +1,4 @@
-import 'package:bloc_suboptimal_mistake/home/home_page.dart';
+import 'package:bloc_suboptimal_mistake/home/presentation/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
