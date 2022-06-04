@@ -1,0 +1,37 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  language:
+    strict-raw-types: true
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+  errors:
+    # treat missing required parameters as an error (not a hint)
+    missing_required_param: error
+    # treat missing returns as an error (not a hint)
+    missing_return: error
+
+linter:
+  rules:
+    require_trailing_commas: true
+    avoid_dynamic_calls: true
+    use_key_in_widget_constructors: false
+    sort_child_properties_last: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    avoid_void_async: true
+    unnecessary_parenthesis: true
+    always_declare_return_types: true
+    unawaited_futures: true
+    only_throw_errors: true
+    missing_whitespace_between_adjacent_strings: true
+    unnecessary_await_in_return: true
+    prefer_int_literals: true
+    no_leading_underscores_for_local_identifiers: true
+    use_decorated_box: true
+    use_build_context_synchronously: false
+    depend_on_referenced_packages: false
+    use_colored_box: true
+    use_enums: true
+    use_super_parameters: true
