@@ -24,38 +24,26 @@ class HomePageOptimized extends StatelessWidget {
               success: (success) => Column(
                 children: [
                   Expanded(
-                    child: BlocBuilder<HomeCubit, HomeState>(
+                    child: BlocSelector<HomeCubit, HomeState, int>(
                       // Rebuild only when firstValue changed
-                      buildWhen: (previous, current) {
-                        if (previous is Success && current is Success) {
-                          return previous.firstValue != current.firstValue;
-                        }
-                        return false;
-                      },
-                      builder: (context, state) {
-                        if (state is Success) {
-                          return FirstSection(state.firstValue);
-                        } else {
-                          throw Exception('Impossible'); // or just return SizedBox ;)
-                        }
+                      selector: (state) => state.maybeMap(
+                        success: (success) => success.firstValue,
+                        orElse: () => throw Exception('Impossible'),
+                      ),
+                      builder: (context, firstValue) {
+                        return FirstSection(firstValue);
                       },
                     ),
                   ),
                   Expanded(
-                    child: BlocBuilder<HomeCubit, HomeState>(
+                    child: BlocSelector<HomeCubit, HomeState, List<String>>(
                       // Rebuild only when secondValue changed
-                      buildWhen: (previous, current) {
-                        if (previous is Success && current is Success) {
-                          return previous.secondValue != current.secondValue;
-                        }
-                        return false;
-                      },
-                      builder: (context, state) {
-                        if (state is Success) {
-                          return SecondSection(state.secondValue);
-                        } else {
-                          throw Exception('Impossible'); // or just return SizedBox ;)
-                        }
+                      selector: (state) => state.maybeMap(
+                        success: (success) => success.secondValue,
+                        orElse: () => throw Exception('Impossible'),
+                      ),
+                      builder: (context, secondValue) {
+                        return SecondSection(secondValue);
                       },
                     ),
                   ),
