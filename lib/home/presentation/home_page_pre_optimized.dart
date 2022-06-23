@@ -3,7 +3,7 @@ import 'package:bloc_suboptimal_mistake/home/cubit/home_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomePageOptimized extends StatelessWidget {
+class HomePagePreOptimized extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -20,12 +20,30 @@ class HomePageOptimized extends StatelessWidget {
               loading: (_) => const CircularProgressIndicator(),
               error: (error) => Text(error.message),
               success: (success) => Column(
-                children: const [
+                children: [
                   Expanded(
-                    child: FirstSection(),
+                    child: BlocSelector<HomeCubit, HomeState, int>(
+                      // Rebuild only when firstValue changed
+                      selector: (state) => state.maybeMap(
+                        success: (success) => success.firstValue,
+                        orElse: () => throw Exception('Impossible'),
+                      ),
+                      builder: (context, firstValue) {
+                        return FirstSection(firstValue);
+                      },
+                    ),
                   ),
                   Expanded(
-                    child: SecondSection(),
+                    child: BlocSelector<HomeCubit, HomeState, List<String>>(
+                      // Rebuild only when secondValue changed
+                      selector: (state) => state.maybeMap(
+                        success: (success) => success.secondValue,
+                        orElse: () => throw Exception('Impossible'),
+                      ),
+                      builder: (context, secondValue) {
+                        return SecondSection(secondValue);
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -46,36 +64,30 @@ class HomePageOptimized extends StatelessWidget {
 }
 
 class FirstSection extends StatelessWidget {
-  const FirstSection();
+  final int value;
+
+  const FirstSection(this.value);
 
   @override
   Widget build(BuildContext context) {
+    print("Building FirstSection");
     return Center(
-      child: BlocSelector<HomeCubit, HomeState, int>(
-        selector: (state) => state.mapOrNull(success: (success) => success.firstValue)!,
-        builder: (context, firstValue) {
-          print("Building only Text in FirstSection");
-          return Text(firstValue.toString());
-        },
-      ),
+      child: Text(value.toString()),
     );
   }
 }
 
 class SecondSection extends StatelessWidget {
-  const SecondSection();
+  final List<String> products;
+
+  const SecondSection(this.products);
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<HomeCubit, HomeState, List<String>>(
-      selector: (state) => state.mapOrNull(success: (success) => success.secondValue)!,
-      builder: (context, secondValue) {
-        print("Building only ListView in SecondSection");
-        return ListView.builder(
-          itemCount: secondValue.length,
-          itemBuilder: (context, index) => Text(secondValue[index]),
-        );
-      },
+    print("Building SecondSection");
+    return ListView.builder(
+      itemCount: products.length,
+      itemBuilder: (context, index) => Text(products[index]),
     );
   }
 }

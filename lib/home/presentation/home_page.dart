@@ -1,7 +1,5 @@
 import 'package:bloc_suboptimal_mistake/home/cubit/home_cubit.dart';
 import 'package:bloc_suboptimal_mistake/home/cubit/home_state.dart';
-import 'package:bloc_suboptimal_mistake/home/presentation/widgets/first_section.dart';
-import 'package:bloc_suboptimal_mistake/home/presentation/widgets/second_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,6 +39,35 @@ class HomePage extends StatelessWidget {
           },
         ),
       ),
+    );
+  }
+}
+
+class FirstSection extends StatelessWidget {
+  final int value;
+
+  const FirstSection(this.value);
+
+  @override
+  Widget build(BuildContext context) {
+    print("Building FirstSection");
+    return Center(
+      child: Text(value.toString()),
+    );
+  }
+}
+
+class SecondSection extends StatelessWidget {
+  final List<String> products;
+
+  const SecondSection(this.products);
+
+  @override
+  Widget build(BuildContext context) {
+    print("Building SecondSection");
+    return ListView.builder(
+      itemCount: products.length,
+      itemBuilder: (context, index) => Text(products[index]),
     );
   }
 }

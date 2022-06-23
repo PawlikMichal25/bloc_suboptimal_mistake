@@ -1,4 +1,4 @@
-import 'package:bloc_suboptimal_mistake/home/presentation/home_page.dart';
+import 'package:bloc_suboptimal_mistake/home/presentation/home_page_optimized.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: HomePageOptimized(),
     );
   }
 }
